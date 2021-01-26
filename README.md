@@ -72,3 +72,18 @@ db_host = 'YOUR_DATABASE_HOST'
 db_name = 'YOUR_DATABASE_NAME'
 
 ```
+
+
+``` python
+# database connection example
+
+from constants import db_host, db_password, db_user, db_name
+
+con = pymysql.connect(host=db_host, user=db_user, password=db_password, db=db_name)
+cursor = con.cursor()
+
+
+con.commit()
+con.close()
+
+```
