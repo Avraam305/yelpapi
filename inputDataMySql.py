@@ -3,7 +3,7 @@ import json
 from constants import db_host, db_password, db_user, db_name
 
 
-json_data = open("yelpdata.json").read()
+json_data = open("yelpData.json").read()
 json_obj = json.loads(json_data)
 json_data2 = json_obj["businesses"]
 print(type(json_data2))
