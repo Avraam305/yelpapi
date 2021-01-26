@@ -1,4 +1,4 @@
-from inputDataMySQL import json_data2
+from inputDataMySql import json_data2
 from constants import google_key
 import urllib.parse
 import requests
