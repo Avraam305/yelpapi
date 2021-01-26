@@ -57,7 +57,9 @@ for item in json_data2:
 ```
 
 [constants.py](https://github.com/Avraam305/yelpapi/blob/main/constants.py) contains API keys which can be obtained from https://www.yelp.com/developers
-and https://developers.google.com/places/web-service/get-api-key
+and https://developers.google.com/places/web-service/get-api-key. Aso it contains your database connection information.
+
+
 
 ``` python
 
