@@ -4,7 +4,8 @@ For this project i used some simple libraries:
   * pip3 install pymysql
 
 ### We are making an API request to https://www.yelp.com/
-### Documentation: https://www.yelp.com/developers/documentation/v3
+### Yelp Documentation: https://www.yelp.com/developers/documentation/v3
+### Google Documentation: https://developers.google.com/places/web-service/get-api-key
 
 
 ```python
