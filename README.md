@@ -3,7 +3,7 @@ For this project i used some simple libraries:
   * pip3 install requests
   * pip3 install pymysql
 
-### We are making API request to https://www.yelp.com/
+### We are making an API request to https://www.yelp.com/
 ### Documentation: https://www.yelp.com/developers/documentation/v3
 
 
