@@ -1,9 +1,9 @@
-# yelpapi
+# yelpAPIrequest
 For this project i used some simple libraries:
   * pip3 install requests
   * pip3 install pymysql
 
-### We are makin api request to https://www.yelp.com/
+### We are making API request to https://www.yelp.com/
 ### Documentation: https://www.yelp.com/developers/documentation/v3
 
 
@@ -56,7 +56,7 @@ for item in json_data2:
                    (name, phone, stars, address, state, city, postal_code, latitude, longitude,))
 ```
 
-[constants.py](https://github.com/Avraam305/yelpapi/blob/main/constants.py) contains api keys which can be obtained from https://www.yelp.com/developers
+[constants.py](https://github.com/Avraam305/yelpapi/blob/main/constants.py) contains API keys which can be obtained from https://www.yelp.com/developers
 and https://developers.google.com/places/web-service/get-api-key
 
 ``` python
