@@ -25,7 +25,7 @@ parameters = {
             }
 ```
 
-yelpapirequest.py sends a request to yelp.com and loads it into a json file ([yelpData.json](https://github.com/Avraam305/yelpapi/blob/main/yelpData.json))
+[yelpApiRequest.py](https://github.com/Avraam305/yelpapi/blob/main/yelpApiRequest.py) sends a request to yelp.com and loads it into a json file ([yelpData.json](https://github.com/Avraam305/yelpapi/blob/main/yelpData.json))
 
 then we parse this json file using a loop and extract the required items into a database table with such fields:
  * name
