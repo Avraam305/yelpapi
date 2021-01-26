@@ -1,9 +1,9 @@
 # yelpapi
-For this project i used some simple librarias:
+For this project i used some simple libraries:
   * pip3 install requests
   * pip3 install pymysql
 
-### We doing api request to https://www.yelp.com/
+### We are makin api request to https://www.yelp.com/
 ### Documentation: https://www.yelp.com/developers/documentation/v3
 
 
