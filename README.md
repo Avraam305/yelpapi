@@ -8,7 +8,7 @@ For this project i used some simple libraries:
 
 
 ```python
-# yelpapirequest.py
+# yelpApiRequest.py
 # You can change this part of the code if you need to look for something else.
 parameters = {
             'location': 'San Francisco, CA',
