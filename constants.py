@@ -5,3 +5,12 @@ db_password = '12345'
 db_user = 'root'
 db_host = 'localhost'
 db_name = 'yelpbusinessinfo'
+headers = {
+            'Authorization': 'Bearer %s' % yelp_key
+          }
+
+parameters = {
+            'location': 'San Francisco, CA',
+            'limit': 50,
+            'term': 'vegan cafe'
+            }
