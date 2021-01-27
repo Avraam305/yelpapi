@@ -28,7 +28,7 @@ parameters = {
 
 [YelpRequestToDatabase.py](https://github.com/Avraam305/yelpapi/blob/main/YelpRequestToDatabase.py) sends a request to yelp.com, google.com/maps
 
-then we parse this request using a loop and extract the required items into a database table with such fields:
+then we parse this requests using a loop and extract the required items into a database table with such fields:
  * name
  * phone
  * stars
