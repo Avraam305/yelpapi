@@ -3,13 +3,13 @@ For this project i used some simple libraries:
   * pip3 install requests
   * pip3 install pymysql
 
-### We are making an API request to https://www.yelp.com/
+### We are making an API request to https://www.yelp.com/ 
 ### Yelp Documentation: https://www.yelp.com/developers/documentation/v3
 ### Google Documentation: https://developers.google.com/places/web-service/get-api-key
 
 
 ```python
-# yelpApiRequest.py
+#constants.py
 # You can change this part of the code if you need to look for something else.
 parameters = {
             'location': 'San Francisco, CA',
@@ -26,9 +26,9 @@ parameters = {
             }
 ```
 
-[yelpApiRequest.py](https://github.com/Avraam305/yelpapi/blob/main/yelpApiRequest.py) sends a request to yelp.com and loads it into a json file ([yelpData.json](https://github.com/Avraam305/yelpapi/blob/main/yelpData.json))
+[YelpRequestToDatabase.py](https://github.com/Avraam305/yelpapi/blob/main/YelpRequestToDatabase.py) sends a request to yelp.com, google.com/maps
 
-then we parse this json file using a loop and extract the required items into a database table with such fields:
+then we parse this request using a loop and extract the required items into a database table with such fields:
  * name
  * phone
  * stars
@@ -38,12 +38,15 @@ then we parse this json file using a loop and extract the required items into a 
  * postal_code
  * latitude 
  * longitude
+ * googlerating
   
 
 ``` python
 # an example of parsing and loading data into a database
 for item in json_data2:
     name = item.get("name")
+    encode_name = (urllib.parse.quote(name))
+
     address = item.get("location").get("address1")
     state = item.get("location").get("state")
     city = item.get("location").get("city")
@@ -52,9 +55,16 @@ for item in json_data2:
     stars = item.get("rating")
     postal_code = item.get("location").get("zip_code")
     phone = item.get("phone")
-    cursor.execute("insert into businessinfotable(name,phone,stars,address,state,city,postal_code,latitude,longitude) "
-                   "value(%s,%s,%s,%s,%s,%s,%s,%s,%s)",
-                   (name, phone, stars, address, state, city, postal_code, latitude, longitude,))
+    url_google = (f'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input={encode_name}&'
+                  'inputtype=textquery&fields=photos,formatted_address,name,opening_hours,rating&'
+                  f'locationbias=circle:2000@{latitude},{longitude}&key={google_key}')
+    response = requests.get(url_google)
+    x = json.loads(json.dumps(response.json()), object_hook=lambda d: SimpleNamespace(**d))
+    rating = x.candidates[0].rating
+
+    cursor.execute("insert into businessinfotable(name,phone,stars,address,state,city,postal_code,latitude,"
+                   "longitude,googlerating) value(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+                   (name, phone, stars, address, state, city, postal_code, latitude, longitude, rating))
 ```
 
 [constants.py](https://github.com/Avraam305/yelpapi/blob/main/constants.py) contains API keys which can be obtained from https://www.yelp.com/developers
